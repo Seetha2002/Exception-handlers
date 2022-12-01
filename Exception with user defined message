@@ -1,0 +1,11 @@
+declare
+ex_custom EXCEPTION;
+PRAGMA EXCEPTION_INIT( ex_custom, -20001 );
+begin
+raise_application_error( -20001, 'This is a custom error' );
+exception
+when ex_custom
+then
+dbms_output.put_line( sqlerrm );
+end;
+
